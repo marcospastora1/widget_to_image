@@ -68,24 +68,3 @@ Future saveShare(Uint8List bytes) async {
   await file.writeAsBytes(bytes);
   Share.shareFiles(['${tempDir.path}/image.png']);
 }
-
-Future<dynamic> ShowCapturedWidget(
-    BuildContext context, Uint8List capturedImage) {
-  return showDialog(
-    useSafeArea: true,
-    context: context,
-    builder: (context) => Scaffold(
-      appBar: AppBar(
-        title: const Text("capturar widget"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            capturedImage != null ? Image.memory(capturedImage) : Container(),
-          ],
-        ),
-      ),
-    ),
-  );
-}
